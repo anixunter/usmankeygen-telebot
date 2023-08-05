@@ -20,7 +20,7 @@ def scrape_website():
         return None
 
 # Function to handle the usman/key/usmankey command
-@bot.message_handler(func=lambda message: message.text.lower() in ['usman', 'key', 'usmankey'])
+@bot.message_handler(func=lambda message: message.text.lower() == 'usman')
 def get_website(message):
     body = scrape_website()
     if body:
