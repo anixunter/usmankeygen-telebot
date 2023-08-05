@@ -14,6 +14,9 @@ bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 # Initialize a variable to store the scraped website's body
 scraped_body = None
 
+# Initialize a flag to keep track of whether the message has been sent or not
+message_sent = False
+
 # Function to scrape the fixed website and store the body content
 def scrape_website():
     global scraped_body
