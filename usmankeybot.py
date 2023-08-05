@@ -39,7 +39,7 @@ def webhook_handler():
     return 'OK'
 
 # Set the webhook URL with your public URL where the bot is hosted
-WEBHOOK_URL = 'https://usmankeybot.onrender.com' + TELEGRAM_BOT_TOKEN
+WEBHOOK_URL = 't.me/anix101_bot' + TELEGRAM_BOT_TOKEN
 bot.remove_webhook()
 bot.set_webhook(url=WEBHOOK_URL)
 
