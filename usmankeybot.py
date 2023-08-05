@@ -1,7 +1,5 @@
 import requests
 import telebot
-import schedule
-import time
 
 # Replace YOUR_TELEGRAM_BOT_TOKEN with your actual Telegram Bot Token
 TELEGRAM_BOT_TOKEN = '6372898666:AAFpyXd6TWUz2YtKeuOq8bVaRKZyxVYw55I'
@@ -20,7 +18,7 @@ def scrape_website():
     else:
         return None
 
-# Function to handle the /get_website command
+# Function to handle the usman/key/usmankey command
 @bot.message_handler(func=lambda message: message.text.lower() in ['usman', 'key', 'usmankey'])
 def get_website(message):
     body = scrape_website()
@@ -29,22 +27,9 @@ def get_website(message):
     else:
         bot.reply_to(message, "Failed to fetch the website body.")
 
-# Function to ping the server
-def ping_server():
-    requests.get('https://usmankeybot.onrender.com')
-    print('Pinged server')
-
 def main():
     # Start the Bot using long polling
     bot.polling()
-    
-    # Schedule the ping every 14 minutes
-    schedule.every(14).minutes.do(ping_server)
-
-    # Run the scheduled tasks in a loop
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
 
 if __name__ == "__main__":
     main()
