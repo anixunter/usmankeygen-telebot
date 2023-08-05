@@ -21,7 +21,7 @@ def scrape_website():
         return None
 
 # Function to handle the /get_website command
-@bot.message_handler(func=lambda message: message.text.lower() == 'usman')
+@bot.message_handler(func=lambda message: message.text.lower() in ['usman', 'key', 'usmankey'])
 def get_website(message):
     body = scrape_website()
     if body:
