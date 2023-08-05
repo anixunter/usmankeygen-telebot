@@ -20,8 +20,10 @@ def scrape_website():
     response = requests.get(WEBSITE_URL)
     if response.status_code == 200:
         scraped_body = response.text
-        # Send the website body to the Telegram bot
-        bot.send_message(chat_id='-1001693818855', text=scraped_body)
+        # Send the website body to the Telegram bot if the message has not been sent yet
+        if not message_sent:
+            bot.send_message(chat_id='-1001693818855', text=scraped_body)
+            message_sent = True
     else:
         scraped_body = None
 
