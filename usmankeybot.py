@@ -59,10 +59,10 @@ def get_website(message):
 
 # Function to handle the daku command
 @bot.message_handler(func=lambda message: message.text.lower() == 'daku')
-def get_website(message):
-    value = scrape_website2()
+def get_website2(message):
+    body = scrape_website2()
     if body:
-        bot.send_message(message.chat.id, value)
+        bot.send_message(message.chat.id, body)
     else:
         bot.send_message(message.chat.id, "Failed to fetch the website content.")
 
